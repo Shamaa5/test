@@ -10,7 +10,7 @@ function Container() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/news" component={News} />
-        <Route exact path="/singUp" component={Avtorization} />
+        <Route exact path="/auth" component={Avtorization} />
       </Switch>
     </div>
   );

@@ -2,10 +2,13 @@ import React from 'react';
 import {useSelector} from "react-redux";
 
 function Home() {
-    const user = useSelector(state => state.guest)
+    const admin = useSelector(state => state.admin)
+    const auth = useSelector(state => state.auth)
+
+
     return (
         <div className="greetings">
-             <h1>Привет, {user} </h1>
+             <h1>Привет, {!auth ? 'Guest': '' } {admin ? 'Admin' : 'Vania'} </h1>
         </div>
     );
 }

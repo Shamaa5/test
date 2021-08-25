@@ -61,12 +61,21 @@ a {
   font-size: 1rem;
   width: 300px;
 }
-input, button {
+input, button, textarea {
   border-radius: 10px;
   border: 1px solid gray;
   padding: 10px;
   font-size: 1rem;
   width: 300px;
+}
+.news {
+  position: relative;
+  height: 100%;
+}
+.news-create-field {
+ position: absolute;
+  bottom: 5%;
+  left: 37.5%;
 }
 .add-news{
   margin-bottom: 10px;

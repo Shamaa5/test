@@ -1,11 +1,14 @@
 import React from 'react';
+// import {useDispatch} from "react-redux";
 
-function AddNews(props) {
-    function handleAddNews () {
+function AddNews() {
+    // const dispatch = useDispatch();
 
+    function handleAddNews (e) {
+        // dispatch('news/send/')
     }
     return (
-        <div>
+        <div className='news-create-field'>
             <div className="add-news">
                 <input type="text" placeholder="Название новости"/>
             </div>

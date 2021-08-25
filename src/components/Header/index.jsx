@@ -11,7 +11,7 @@ function Header() {
         <NavLink to="/news">
           <li>News</li>
         </NavLink>
-        <NavLink to="/signUp">
+        <NavLink to="/auth">
           <li>SingUp</li>
         </NavLink>
       </ul>
