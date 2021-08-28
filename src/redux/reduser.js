@@ -1,60 +1,68 @@
 const initialState = {
   news: [
     {
-      id: 1,
+      newsId: 0,
+      userId: 0,
       text: "пожалуйста хватит",
       name: "очень прошу",
-      date: new Date(),
+      date: "13.12.12",
       confirmed: true,
+    },
+    {
+      NewsId: 1,
+      UserId: 1,
+      text: "работай сволочь",
+      name: "сверстай этот шлак",
+      date: "14.12.12",
+      confirmed: false,
     },
   ],
   users: [
     {
-      name: "Murad ji est",
+      name: "Admin",
+      role: "admin",
       id: 0,
-      adminPass: 12345,
-      adminEmail: "admin@taxi.com",
+      Password: 12345,
+      Email: "admin@taxi.com",
     },
     {
-      name: "Admin",
+      role: "user",
+      name: "Ванька",
       id: 1,
-      userPass: 12345,
-      adminEmail: "vania@email.com",
+      Password: 12345,
+      Email: "vania@email.com",
     },
   ],
-  guest: false,
   admin: true,
   user: false,
-  loading: false,
   auth: true,
 };
 export const reduser = (state = initialState, action) => {
   switch (action.type) {
-    case 'admin/singIn':
+    case "admin/singIn":
       return {
         ...state,
         auth: true,
         user: false,
         admin: true,
-        guest: false,
-        loading: false
-      }
-    case 'userSing':
+        loading: false,
+      };
+    case "userSing":
       return {
         ...state,
         admin: false,
         auth: true,
         user: true,
-        guest: false,
-        loading: false
-      }
-    case 'newComment/add':
+        loading: false,
+      };
+    case "newComment/add":
       return {
         ...state,
-        news: action.payload
-
+      };
+    case "admin/confirm/news":
+      return  {
+        ...state,
       }
-
     default:
       return state;
   }

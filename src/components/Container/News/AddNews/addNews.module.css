@@ -1,0 +1,15 @@
+.news-create-field {
+    margin: 150px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.add-news{
+    margin-bottom: 10px;
+}
+.none {
+    display: none;
+}
+.center {
+    text-align: center;
+}

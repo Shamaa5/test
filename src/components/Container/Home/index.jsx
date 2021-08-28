@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import styles from "./home.module.css"
 
 function Home() {
     const admin = useSelector(state => state.admin)
@@ -7,7 +8,7 @@ function Home() {
 
 
     return (
-        <div className="greetings">
+        <div className={styles.greetings}>
              <h1>Привет, {!auth ? 'Guest': '' } {admin ? 'Admin' : 'Vania'} </h1>
         </div>
     );

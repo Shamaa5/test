@@ -1,16 +1,15 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Avtorization from "./Avtorization";
 import Home from "./Home";
 import News from "./News";
+import styles from './container.module.css'
 
 function Container() {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/news" component={News} />
-        <Route exact path="/auth" component={Avtorization} />
       </Switch>
     </div>
   );

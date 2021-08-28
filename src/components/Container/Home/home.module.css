@@ -1,0 +1,7 @@
+.greetings {
+    display: flex;
+    justify-content: center;
+    padding: 200px 30px;
+    font-size: 2rem;
+
+}
