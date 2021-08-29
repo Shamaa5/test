@@ -10,23 +10,11 @@ const initialState = {
     },
     {
       NewsId: 1,
-      UserId: 1,
+      UserId:  0,
       text: "работай сволочь",
       name: "сверстай этот шлак",
       date: "14.12.12",
       confirmed: false,
-    },
-  ],
-  users: [
-    {
-      login: "Admin",
-      id: 0,
-      Password: 12345,
-    },
-    {
-      login: "Ванька",
-      id: 1,
-      Password: 12345,
     },
   ],
   admin: true,
@@ -34,6 +22,8 @@ const initialState = {
   auth: true,
   filter: '',
 };
+
+
 export const reduser = (state = initialState, action) => {
   switch (action.type) {
     case "admin/singIn":
@@ -42,7 +32,6 @@ export const reduser = (state = initialState, action) => {
         auth: true,
         user: false,
         admin: true,
-        loading: false,
       };
     case "userSing":
       return {
@@ -50,7 +39,6 @@ export const reduser = (state = initialState, action) => {
         admin: false,
         auth: true,
         user: true,
-        loading: false,
       };
     case "newComment/add":
       return {

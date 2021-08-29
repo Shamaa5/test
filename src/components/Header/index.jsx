@@ -5,7 +5,7 @@ import styles from './header.module.css'
 function Header() {
   const params = useParams()
     return (
-    <header className={(params.id = 'auth') ?  styles.none : ''}>
+    <header className={(params.id === 'auth') ? styles.none : ''}>
       <ul>
         <NavLink to="/">
           <li>Home</li>

@@ -9,14 +9,24 @@ function News() {
   const dispatch = useDispatch();
   const news = useSelector((state) => state.news);
   const admin = useSelector((state) => state.admin);
+  const users = useSelector((state) => state.users);
+  const auth = useSelector(state => state.auth)
 
-  const filteredNews = news.filter((value) => {
-    return value.text.indexOf(filter) > -1;
-  });
+  const filteredNews = news
+      .filter((value) => value.text.indexOf(filter) > -1)
+      .filter(value => {
+      if (!auth) {
+          return value.confirmed === false
+      } else {
+          return true
+      }
+    })
+
+
   const handleChangeConfirmation = (id) => {
     dispatch(confirmComment(id));
   };
-  const handleChangeFindNew = (e) => {
+  const handleFindNew = (e) => {
     dispatch(setFilterText(e.target.value));
   };
   return (
@@ -27,12 +37,12 @@ function News() {
           className={styles["news-search-input"]}
           placeholder="Поиск новостей"
           value={filter}
-          onChange={handleChangeFindNew}
+          onChange={handleFindNew}
         />
       </div>
       <div className={styles["news-comments-container"]}>
         <div>
-          {news.map((value) => {
+          {filteredNews.map((value) => {
             return (
               <div
                 className={
@@ -52,8 +62,7 @@ function News() {
                   <i>{value.date}</i>
                 </div>
                 <div className={!admin ? styles.none : ""}>
-                  {" "}
-                  Подтверждение новости{" "}
+                  Подтверждение новости
                   <input
                     type="checkbox"
                     checked={!!value.confirmed}

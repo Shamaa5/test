@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <div className={styles.greetings}>
-             <h1>Привет, {!auth ? 'Guest': '' } {admin ? 'Admin' : 'Vania'} </h1>
+             <h1>Привет, {!auth ? 'Guest': admin && auth ? 'Admin' : 'Vania' }  </h1>
         </div>
     );
 }

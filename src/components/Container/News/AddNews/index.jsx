@@ -28,8 +28,10 @@ function AddNews() {
       alert("Поля ввода пустые");
     }
   }
-
-  if (admin || user) {
+  if (admin) {
+    return <h2>Вы не имеете права добавлять новости</h2>
+  }
+  if (user) {
     return (
       <div className={styles['news-create-field']}>
           <div>

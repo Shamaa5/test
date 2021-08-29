@@ -6,11 +6,20 @@
     align-items: center;
     justify-content: center;
 }
-input {
 
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 75px;
+    background-color: white;
+    position: relative;
 }
-.input {
-    margin-bottom: 10px;
+h1 {
+    margin-bottom: 40px;
+}
+
+input {
+    margin-bottom: 30px;
 }
 .in {
     background-color: #0cce81;
@@ -24,4 +33,10 @@ input {
     height: 50%;
     width: 40%;
     background-color: azure;
+    position: relative;
+}
+.return {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
