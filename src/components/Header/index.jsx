@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import styles from './header.module.css'
 
 function Header() {
-  return (
-    <header className={styles.header}>
+  const params = useParams()
+    return (
+    <header className={(params.id = 'auth') ?  styles.none : ''}>
       <ul>
         <NavLink to="/">
           <li>Home</li>

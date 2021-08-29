@@ -1,14 +1,14 @@
-export const loadNews = (id, text, confirmed, date) => {
+export const loadNews = (newsId, userId, text, name, date, confirmed) => {
   return {
     type: "newComment/add",
-    payload: { id, text, confirmed, date, }
+    payload: { newsId, userId, text, name, date, confirmed },
   };
 };
 
 export const confirmComment = (id) => {
   return {
     type: "admin/confirm/news",
-    payload: id
+    payload: id,
   };
 };
 
@@ -21,5 +21,17 @@ export const adminSign = () => {
 export const userSing = () => {
   return {
     type: "user/singIn",
+  };
+};
+export const signOut = () => {
+  return {
+    type: "user/singOut",
+  };
+};
+
+export const setFilterText = (find) => {
+  return {
+    type: "filter/text",
+    payload: find,
   };
 };

@@ -19,23 +19,20 @@ const initialState = {
   ],
   users: [
     {
-      name: "Admin",
-      role: "admin",
+      login: "Admin",
       id: 0,
       Password: 12345,
-      Email: "admin@taxi.com",
     },
     {
-      role: "user",
-      name: "Ванька",
+      login: "Ванька",
       id: 1,
       Password: 12345,
-      Email: "vania@email.com",
     },
   ],
   admin: true,
   user: false,
   auth: true,
+  filter: '',
 };
 export const reduser = (state = initialState, action) => {
   switch (action.type) {
@@ -58,10 +55,32 @@ export const reduser = (state = initialState, action) => {
     case "newComment/add":
       return {
         ...state,
+        news: [...state.news, action.payload]
       };
     case "admin/confirm/news":
-      return  {
+      return {
         ...state,
+        news: state.news.map((v) => {
+          if (v.newsId === action.payload) {
+            return {
+              ...v,
+              confirmed: !v.confirmed,
+            }
+          }
+          return v
+        })
+      }
+    case 'user/singOut':
+      return {
+        ...state,
+        auth: false,
+        user: false,
+        admin: false
+      }
+    case 'filter/text':
+      return {
+        ...state,
+        filter: action.payload
       }
     default:
       return state;

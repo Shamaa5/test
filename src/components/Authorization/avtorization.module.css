@@ -12,3 +12,16 @@ input {
 .input {
     margin-bottom: 10px;
 }
+.in {
+    background-color: #0cce81;
+    margin-bottom: 20px;
+}
+.quit {
+    background-color: #ce542c;
+}
+.auth-box {
+    padding-top: 100px;
+    height: 50%;
+    width: 40%;
+    background-color: azure;
+}

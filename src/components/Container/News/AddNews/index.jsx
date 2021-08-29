@@ -12,17 +12,18 @@ function AddNews() {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const confirmed = false;
-  const date = new Date().toLocaleTimeString();
-  const id = useSelector((state) => state.news.id + 1);
+  const date = new Date().toDateString();
   const addName = (e) => {
     setName(e.target.value);
   };
   const addText = (e) => {
     setText(e.target.value);
   };
+  const newsId = parseInt(Math.random()*100);
+  const userId = 0
   function handleAddNews() {
     if (text.length > 0 && name.length > 0) {
-      dispatch(loadNews(id, text, name, confirmed, date));
+      dispatch(loadNews(newsId, userId, text, name, date, confirmed));
     } else {
       alert("Поля ввода пустые");
     }
@@ -46,12 +47,6 @@ function AddNews() {
             value={text}
             onChange={addText}
           />
-        </div>
-        <div className={!admin ? styles.none : ''}>
-          <div> подтвердить новость</div>
-          <div>
-            <input type="checkbox"/>
-          </div>
         </div>
         <button onClick={handleAddNews}>Отправить</button>
           </div>
